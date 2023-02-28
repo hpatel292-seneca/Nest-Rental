@@ -16,12 +16,17 @@ const app = express();
 const rentals = require('./models/rentals-db');
 const exphbs = require('express-handlebars');
 
+
 // Set up HandleBars
 app.engine(".hbs", exphbs.engine({
     extname: ".hbs",
     defaultLayout: "main"
 }));
 app.set("view engine", ".hbs");
+
+// Set up body-parser
+app.use(express.urlencoded({ extended: false }));
+
 // Add your routes here
 // e.g. app.get() { ... }
 
@@ -55,6 +60,11 @@ app.get("/log-in", (req, res)=>{
     });
 })
 
+app.get("/welcome", (req, res)=>{
+    res.render('welcome', {
+        layout: 'main'
+    })
+})
 
 // *** DO NOT MODIFY THE LINES BELOW ***
 

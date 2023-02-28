@@ -9,5 +9,5 @@ Student Email : hpatel292@myseneca.ca
 Course/Section: NCC
 
 ## Project URLs
-GitHub Repo   : https://github.com/hpatel292-seneca/web322-hpatel292
+GitHub Repo   : https://github.com/hpatel292-seneca/web322-hpatel292 <br>
 Cyclic URL    : https://worrisome-peplum-duck.cyclic.app/

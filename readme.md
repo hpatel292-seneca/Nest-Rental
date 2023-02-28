@@ -5,7 +5,7 @@ No part of this assignment has been copied manually or electronically from any o
 (including web sites) or distributed to other students.
 
 Student Name  : Harshil Patel  
-Student Email : hpatel292@myseneca.ca
+Student Email : hpatel292@myseneca.ca <br>
 Course/Section: NCC
 
 ## Project URLs

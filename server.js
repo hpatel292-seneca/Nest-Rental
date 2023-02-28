@@ -16,6 +16,9 @@ const app = express();
 const rentals = require('./models/rentals-db');
 const exphbs = require('express-handlebars');
 
+// Set up dotenv
+const dotenv = require("dotenv");
+dotenv.config({ path: "./config/keys.env" });
 
 // Set up HandleBars
 app.engine(".hbs", exphbs.engine({
@@ -23,11 +26,6 @@ app.engine(".hbs", exphbs.engine({
     defaultLayout: "main"
 }));
 app.set("view engine", ".hbs");
-
-// Set up dotenv
-const dotenv = require("dotenv");
-dotenv.config({ path: "./config/keys.env" });
-
 
 // Set up body-parser
 app.use(express.urlencoded({ extended: false }));
@@ -70,8 +68,6 @@ app.get("/welcome", (req, res)=>{
         layout: 'main'
     })
 })
-
-
 // form submittion handler
 // sign-up form handler
 app.post("/sign-up", (req, res)=>{
@@ -166,6 +162,57 @@ app.post("/sign-up", (req, res)=>{
     }
 })
 
+
+// Log-in form handler
+app.post('/log-in', (req, res)=>{
+    console.log(req.body);
+    
+    const { Email, Password} = req.body;
+
+    let passedValidation = true;
+    let validationMessages = {};
+
+    const emailRegExp = new RegExp('[a-zA-Z0-9._+-]+[@][a-zA-Z0-9-]+[.][a-zA-Z0-9.-]+');
+    if (typeof Email !== "string") {
+        passedValidation = false;
+        validationMessages.Email = "Email must be string";
+    }
+    else if (Email.trim().length === 0) {
+        passedValidation = false;
+        validationMessages.Email = "You must specify a Email";
+    }
+    else if(!emailRegExp.test(Email)){
+        passedValidation = false;
+        validationMessages.Email = "You must specify a Email in '******@***.***' format";
+    }
+
+    // validate password
+    const passRegExp = new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^\da-zA-Z]).{8,12}$')
+    // this regular expression is taken form ChatGPT
+    if (typeof Password !== "string") {
+        passedValidation = false;
+        validationMessages.Password = "Password must be string";
+    }
+    else if (Password.trim().length === 0) {
+        passedValidation = false;
+        validationMessages.Password = "You must specify a Password";
+    }
+    else if(!passRegExp.test(Password)){
+        passedValidation = false;
+        validationMessages.Password = "Password must have atlease 1 a-z, 1 A-Z, 1 0-9, 1 special char length 8-12";
+    };
+
+    if (passedValidation) {
+        res.redirect('/welcome');
+    }
+    else {
+        res.render('log-in', {
+            layout: 'main',
+            validationMessages,
+            values: req.body
+        });
+    }
+})
 // *** DO NOT MODIFY THE LINES BELOW ***
 
 // This use() will not allow requests to go beyond it

@@ -1,0 +1,67 @@
+</header>
+        <section class="app__hero app__flex">
+            <div class="app__hero-div app__flex">
+                <h1>Best Rental Site</h1>
+                <p>Our amazing Team is devoted to ensuring that every one of our customer is able to enjoy their
+                    stay.
+                    Making us the best place to look for rental in the world.</p>
+            </div>
+            <div class="app__hero-btn">
+                <a href="/rentals"><button id="btn__list">List Your Property</button></a>
+            </div>
+        </section>
+    </div>
+    <section class="container-m app__flex app__content">
+        <h1 class="heading">Content We Offer</h1>
+        <p>This are the service we are offering to our customer</p>
+        <div class="content_grid app__flex">
+            <div class="content_item app__flex">
+                <div class="content-icon"><span class="material-symbols-outlined">
+                    verified_user
+                    </span></div>
+                <h3>Peace Of Mind</h3>
+                <p>Our Team is there for you 24X7 for any assistance</p>
+            </div>
+            <div class="content_item app__flex">
+                <div class="content-icon"><span class="material-symbols-outlined">
+                    schedule
+                    </span></div>
+                <h3>More Quality Time</h3>
+                <p>From booking to staying the whole process is simple and enjoyable</p>
+            </div>
+            <div class="content_item app__flex">
+                <div class="content-icon"><span class="material-symbols-outlined">
+                    home
+                    </span></div>
+                <h3>All the privacy of home</h3>
+                <p>Enjoy full Kitchens, laundry, pools, yards and more</p>
+            </div>
+            <div class="content_item app__flex">
+                <div class="content-icon"><span class="material-symbols-outlined">
+                    thumb_up
+                    </span></div>
+                <h3>More for less</h3>
+                <p>More space, more privacy, more amenities - more value</p>
+            </div>
+        </div>
+        <div class="app__content-mission">
+            <span class="orange_text">Our Vision:</span>
+            <span>To satisfy every customer on NEST</span>
+        </div>
+    </section>
+    <section class="container-m app__flex app__rentals">
+        <h2 class="heading">Featured Rentals</h2>
+        <div class="rentals">
+        {{#each data}}
+        <div class="rental-item-{{@index}}">
+        {{> rental this}}
+        </div>
+        {{/each}}
+        </div>
+        <div class="app__contact_us app__flex">
+            <div class="contact_us app__flex">
+                <p>Have any question or need any assistance?</p>
+                <a href="tel:+1234567890"><button id="btn__list">Contact Us</button></a>
+            </div>
+        </div>
+    </section>

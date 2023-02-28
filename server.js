@@ -24,6 +24,11 @@ app.engine(".hbs", exphbs.engine({
 }));
 app.set("view engine", ".hbs");
 
+// Set up dotenv
+const dotenv = require("dotenv");
+dotenv.config({ path: "./config/keys.env" });
+
+
 // Set up body-parser
 app.use(express.urlencoded({ extended: false }));
 
@@ -122,7 +127,35 @@ app.post("/sign-up", (req, res)=>{
     }
     if (passedValidation) {
 
-       res.redirect('/welcome');
+        // Continue and submit contact us form.
+        const sgMail = require("@sendgrid/mail");
+        console.log(process.env);
+        sgMail.setApiKey(process.env.SEND_GRID_API_KEY);
+
+        const msg = {
+            to: Email,
+            from: "harshilpatelpatel70@gmail.com",
+            subject: "Registration Confirmation at Nest Rentals",
+            html:
+                `Hello, ${Name}, Thank you for <br>
+                Registration at Nest rentals. I am Harshil Patel, <br>
+                here to welcome you and provide further Assistance.<br>
+                `
+        };
+
+        sgMail.send(msg)
+            .then(() => {
+                res.redirect('/welcome');
+            })
+            .catch(err => {
+                console.log(err);
+
+                res.render('sign-up', {
+                    layout: 'main',
+                    validationMessages,
+                    values: req.body
+                }); 
+            });
     }
     else {
         res.render('sign-up', {
@@ -132,7 +165,6 @@ app.post("/sign-up", (req, res)=>{
         });
     }
 })
-
 
 // *** DO NOT MODIFY THE LINES BELOW ***
 

@@ -102,8 +102,8 @@ app.post("/sign-up", (req, res)=>{
         validationMessages.Email = "You must specify a Email in '******@***.***' format";
     }
 
-    // validate password
-    const passRegExp = new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^\da-zA-Z]).{8,12}$');
+    // validate password ^\da-zA-Z
+    const passRegExp = new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[,./<>?{}~!@#$%^&*()=+-_]).{8,12}$');
     // this regular expression is taken form ChatGPT
     if (typeof Password !== "string") {
         passedValidation = false;
@@ -112,10 +112,11 @@ app.post("/sign-up", (req, res)=>{
     else if (Password.trim().length === 0) {
         passedValidation = false;
         validationMessages.Password = "You must specify a Password";
+        validationMessages.RePassword = "You must specify a Re-Password";
     }
     else if(!passRegExp.test(Password)){
         passedValidation = false;
-        validationMessages.Password = "Password must have atlease 1 a-z, 1 A-Z, 1 0-9, 1 special char length 8-12";
+        validationMessages.Password = "A 8-12 characters password at least contains one of each uppercase and lowercase letter, symbol and number.";
     }
     else if(Password !== RePassword){
         passedValidation = false;
@@ -165,14 +166,12 @@ app.post("/sign-up", (req, res)=>{
 
 // Log-in form handler
 app.post('/log-in', (req, res)=>{
-    console.log(req.body);
     
     const { Email, Password} = req.body;
 
     let passedValidation = true;
     let validationMessages = {};
 
-    const emailRegExp = new RegExp('[a-zA-Z0-9._+-]+[@][a-zA-Z0-9-]+[.][a-zA-Z0-9.-]+');
     if (typeof Email !== "string") {
         passedValidation = false;
         validationMessages.Email = "Email must be string";
@@ -181,14 +180,8 @@ app.post('/log-in', (req, res)=>{
         passedValidation = false;
         validationMessages.Email = "You must specify a Email";
     }
-    else if(!emailRegExp.test(Email)){
-        passedValidation = false;
-        validationMessages.Email = "You must specify a Email in '******@***.***' format";
-    }
 
     // validate password
-    const passRegExp = new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^\da-zA-Z]).{8,12}$')
-    // this regular expression is taken form ChatGPT
     if (typeof Password !== "string") {
         passedValidation = false;
         validationMessages.Password = "Password must be string";
@@ -197,11 +190,7 @@ app.post('/log-in', (req, res)=>{
         passedValidation = false;
         validationMessages.Password = "You must specify a Password";
     }
-    else if(!passRegExp.test(Password)){
-        passedValidation = false;
-        validationMessages.Password = "Password must have atlease 1 a-z, 1 A-Z, 1 0-9, 1 special char length 8-12";
-    };
-
+   
     if (passedValidation) {
         res.redirect('/welcome');
     }

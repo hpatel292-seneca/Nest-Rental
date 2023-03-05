@@ -13,7 +13,7 @@
               placeholder="Enter a valid email address" name="Email" value="{{values.Email}}" />
             <label class="form-label" for="form3Example3">Email address</label>
             {{#if validationMessages.Email}}
-                      <span style="color: red;">  *{{validationMessages.Email}}</span><br />
+                     <br> <span style="color: red;">  *{{validationMessages.Email}}</span><br />
                       {{/if}}
           </div>
 
@@ -23,7 +23,7 @@
               placeholder="Enter password" name="Password" value="{{values.Password}}"/>
             <label class="form-label" for="form3Example4">Password</label>
             {{#if validationMessages.Password}}
-                      <span style="color: red;">  *{{validationMessages.Password}}</span><br />
+                      <br><span style="color: red;">  *{{validationMessages.Password}}</span><br />
                       {{/if}}
           </div>
 

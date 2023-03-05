@@ -79,7 +79,6 @@ app.get("/welcome", (req, res)=>{
 // form submittion handler
 // sign-up form handler
 app.post("/sign-up", (req, res)=>{
-    console.log(req.body);
     
     const { Name, Email, Password, RePassword } = req.body;
 
@@ -134,7 +133,6 @@ app.post("/sign-up", (req, res)=>{
 
         // Continue and submit contact us form.
         const sgMail = require("@sendgrid/mail");
-        console.log(process.env);
         sgMail.setApiKey(process.env.SEND_GRID_API_KEY);
 
         const msg = {

@@ -39,7 +39,9 @@ app.get("/", (req, res)=>{
     // res.sendFile(path.join(__dirname, "/views/home.html"));
     res.render('home', {
         data: rentals.getFeaturedRentals(),
+        id: "front_page",
         isHome: true,
+        title: "Nest",
         layout: 'main'
     });
 })
@@ -47,24 +49,30 @@ app.get("/", (req, res)=>{
 app.get("/rentals", (req, res)=>{
     res.render('rentals', {
         data: rentals.getRentalsByCityAndProvince(),
+        title: "Nest Rentals",
         layout: 'main'
     });
 })
 
 app.get("/sign-up", (req, res)=>{
     res.render('sign-up', {
+        title: "Nest Sign-Up",
         layout: 'main'
     });
 })
 
 app.get("/log-in", (req, res)=>{
     res.render('log-in', {
+        title: "Nest Log-in",
         layout: 'main'
     });
 })
 
 app.get("/welcome", (req, res)=>{
     res.render('welcome', {
+        id: "Welcome_page",
+        isWelcome: true,
+        title: "Nest Welcome",
         layout: 'main'
     })
 })
@@ -134,10 +142,7 @@ app.post("/sign-up", (req, res)=>{
             from: "harshilpatelpatel70@gmail.com",
             subject: "Registration Confirmation at Nest Rentals",
             html:
-                `Hello, ${Name}, Thank you for <br>
-                Registration at Nest rentals. I am Harshil Patel, <br>
-                here to welcome you and provide further Assistance.<br>
-                `
+                `Hello ${Name}, Thank you for Registration at Nest rentals. I am Harshil Patel, here to welcome you and provide further Assistance.`
         };
 
         sgMail.send(msg)

@@ -35,6 +35,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    z-index: 1;
 }
 .nav-icon{
     width: 20%;
@@ -353,6 +354,39 @@ footer li a:hover{
     color: orangered;
     margin-bottom: 25px;
 }
+/* ------------------Welcome Page -------------------*/
+#myVideo {
+    position:absolute;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7));
+  }
+  
+  /* Add some content at the bottom of the video/page */
+  .content {
+    /* position: fixed; */
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    color: #f1f1f1;
+    width: 100%;
+    height: 100vh;
+  }
+.welcome_content{
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    font-size: 2.5rem;
+}
+.welcome_data{
+    width: 50%;
+    text-align: center;
+}
+.welcome_data h1{
+    font-size: 4rem;
+}
 
 /* ------------------ media queries ---------------- */
 @media(max-width: 1200px){
@@ -395,6 +429,12 @@ footer li a:hover{
     }
     .app__content-mission {
         font-size: 2rem;
+    }
+    .welcome_content{
+        font-size: 2rem;
+    }
+    .welcome_data h1{
+        font-size: 3rem;
     }
 }
 @media(max-width: 768px)
@@ -485,6 +525,16 @@ footer li a:hover{
     
 }
 @media(max-width: 500px){
+    .welcome_content{
+        font-size: 1.5rem;
+        
+    }
+    .welcome_data{
+        width: 80%;
+    }
+    .welcome_data h1{
+        font-size: 2.5rem;
+    }
     .nav-icon{
         width: 35%;
     }

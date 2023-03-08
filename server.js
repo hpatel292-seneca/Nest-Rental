@@ -80,7 +80,7 @@ app.get("/welcome", (req, res)=>{
 // sign-up form handler
 app.post("/sign-up", (req, res)=>{
     
-    const { Name, Email, Password, RePassword } = req.body;
+    const { Name, Email, Password, lastName } = req.body;
 
     let passedValidation = true;
     let validationMessages = {};
@@ -92,6 +92,14 @@ app.post("/sign-up", (req, res)=>{
     else if (Name.trim().length === 0) {
         passedValidation = false;
         validationMessages.Name = "You must specify a first name";
+    }
+    if (typeof lastName !== "string") {
+        passedValidation = false;
+        validationMessages.lastName = "Last name must be string";
+    }
+    else if (lastName.trim().length === 0) {
+        passedValidation = false;
+        validationMessages.lastName = "You must specify a Last name";
     }
 
     // validation for Email
@@ -125,10 +133,6 @@ app.post("/sign-up", (req, res)=>{
         passedValidation = false;
         validationMessages.Password = "A 8-12 characters password at least contains one of each uppercase and lowercase letter, symbol and number.";
     }
-    else if(Password !== RePassword){
-        passedValidation = false;
-        validationMessages.RePassword = "Password and Repassword must be same";
-    }
     if (passedValidation) {
 
         // Continue and submit contact us form.
@@ -140,7 +144,7 @@ app.post("/sign-up", (req, res)=>{
             from: "harshilpatelpatel70@gmail.com",
             subject: "Registration Confirmation at Nest Rentals",
             html:
-                `Hello ${Name}, Thank you for Registration at Nest rentals. I am Harshil Patel, here to welcome you and provide further Assistance.`
+                `Hello ${Name} ${lastName}, Thank you for Registration at Nest rentals. I am Harshil Patel, here to welcome you and provide further Assistance.`
         };
 
         sgMail.send(msg)

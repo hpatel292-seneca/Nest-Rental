@@ -67,12 +67,13 @@ app.get("/log-in", (req, res)=>{
         layout: 'main'
     });
 })
-
+let userName;
 app.get("/welcome", (req, res)=>{
     res.render('welcome', {
         id: "Welcome_page",
         isWelcome: true,
         title: "Nest Welcome",
+        userName: userName,
         layout: 'main'
     })
 })
@@ -81,7 +82,7 @@ app.get("/welcome", (req, res)=>{
 app.post("/sign-up", (req, res)=>{
     
     const { Name, Email, Password, lastName } = req.body;
-
+    userName = `${Name} ${lastName}`;
     let passedValidation = true;
     let validationMessages = {};
     // validation for Name
@@ -134,7 +135,7 @@ app.post("/sign-up", (req, res)=>{
         validationMessages.Password = "A 8-12 characters password at least contains one of each uppercase and lowercase letter, symbol and number.";
     }
     if (passedValidation) {
-
+        
         // Continue and submit contact us form.
         const sgMail = require("@sendgrid/mail");
         sgMail.setApiKey(process.env.SEND_GRID_API_KEY);

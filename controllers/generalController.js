@@ -48,7 +48,7 @@ let errorMessage = "";
 router.post("/sign-up", (req, res) => {
     let validationMessages = {};
     // TODO add logic to query DB and if same email address found, return sign-up page with an error message.
-    const { Name, Email, Password, lastName } = req.body;
+    const { Name, Email, Password, lastName, type } = req.body;
     // querying DB for finding same email.
     userModel.findOne({ Email }).then((data) => {
         console.log(data);
@@ -64,7 +64,7 @@ router.post("/sign-up", (req, res) => {
             });
 
         }
-
+        else{
         userName = `${Name} ${lastName}`;
         let passedValidation = true;
 
@@ -132,11 +132,11 @@ router.post("/sign-up", (req, res) => {
                                 if(type === 'clerk'){
                                     req.session.isClerk = true;
                                     
-                                    res.redirect("/rentals/list");
+                                    //res.redirect("/rentals/list");
                                 }
                                 else{
                                     req.session.isCustomer = true;
-                                res.redirect("/cart");
+                                //res.redirect("/cart");
                                 }
             // Continue and submit contact us form.
             const sgMail = require("@sendgrid/mail");
@@ -180,6 +180,7 @@ router.post("/sign-up", (req, res) => {
                 values: req.body
             });
         }
+    }
     })
 
 })

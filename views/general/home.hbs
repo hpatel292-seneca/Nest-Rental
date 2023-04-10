@@ -7,7 +7,15 @@
                     Making us the best place to look for rental in the world.</p>
             </div>
             <div class="app__hero-btn">
-                <a href="/rentals"><button id="btn__list">List Your Property</button></a>
+                {{#if isCustomer}}
+                <a href="/rentals"><button id="btn__list">Rent Property</button></a>
+                {{else}}
+                    {{#if isClerk}}
+                        <a href="/rentals/add"><button id="btn__list">List Your Property</button></a>
+                    {{else}}
+                        <a href="/log-in"><button id="btn__list">List/Rent Property</button></a>
+                    {{/if}}
+                {{/if}}
             </div>
         </section>
     </div>

@@ -573,7 +573,12 @@ footer li a:hover{
 .welcome_data h1{
     font-size: 4rem;
 }
-
+/* -----------------------sign in -------------------- */
+.sign-in-radio{
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 20px;
+}
 /* ------------------ media queries ---------------- */
 @media(max-width: 1200px){
     .app__hero-div h1{

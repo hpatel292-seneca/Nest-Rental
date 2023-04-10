@@ -1,0 +1,20 @@
+{{!-- Made this saperate view as my rentalController render rentalList view and if i pass variable from by rentalCntroller to view edit button, i still have to pass this variable to rental view as actual buttons is coded in rental partial and i didnt find a way to do that. --}}
+<div class="app__flex rentalsList-div">
+    {{#each data}}
+    <div class="">
+
+        
+        {{> rentalEditable this}}
+
+    </div>
+    
+    {{else}}
+    <h1>No Data Inserted!!</h1>
+    {{/each}}
+</div>
+<div class="app__contact_us app__flex app__load_bulk_data">
+            <div class="contact_us app__flex">
+                <a href="/rentals/add"><button id="btn__list">add Rental</button></a>
+                <a href="/load-data/rentals"><button id="btn__list">Load Bulk Data</button></a>
+            </div>
+    </div>

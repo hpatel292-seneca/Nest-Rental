@@ -3,64 +3,69 @@ let rental_obj = [
         headline: 'Doncaster',
         numBedrooms: 7,
         numBathrooms: 4,
+        numSleeps: 14,
         pricePerNight: 350,
         city: 'Markham',
         province: "Ontario",
-        imageUrl: '../../a1.jpg',
+        imageUrl: 'a1.jpg',
         featuredRental: true,
     },
     {
         headline: 'Toogood Pond Park',
         numBedrooms: 4,
         numBathrooms: 2,
+        numSleeps: 6,
         pricePerNight: 240,
         city: 'Markham',
         province: "Ontario",
-        imageUrl: '../../a2.jpg',
+        imageUrl: 'a2.jpg',
         featuredRental: false,
     },
     {
         headline: 'The Tower Hotel',
         numBedrooms: 3,
+        numSleeps: 5,
         numBathrooms: 1.5,
         pricePerNight: 150,
         city: 'Niagara',
         province: "Ontario",
-        imageUrl: '../../a7.jpg',
+        imageUrl: 'a7.jpg',
         featuredRental: false,
     },
     {
         headline: 'Choice Inn by the Falls',
         numBedrooms: 7,
+        numSleeps: 7,
         numBathrooms: 4,
         pricePerNight: 250,
         city: 'Niagara',
         province: "Ontario",
-        imageUrl: '../../a3.jpg',
+        imageUrl: 'a3.jpg',
         featuredRental: false,
     },
     {
         headline: 'Niagara Inn & Suites',
         numBedrooms: 5,
+        numSleeps: 10,
         numBathrooms: 3,
         pricePerNight: 250,
         city: 'Niagara',
         province: "Ontario",
-        imageUrl: '../../a4.jpg',
+        imageUrl: 'a4.jpg',
         featuredRental: true,
     },
     {
         headline: "Hipwell's Motel",
         numBedrooms: 3,
         numBathrooms: 1.5,
+        numSleeps: 6,
         pricePerNight: 80,
         city: 'Niagara',
         province: "Ontario",
-        imageUrl: '../../a6.jpg',
+        imageUrl: 'a6.jpg',
         featuredRental: true,
     }
 ];
-
 
 // [ {
 //     “cityProvince”: “Scugog, Ontario”,
@@ -70,6 +75,9 @@ let rental_obj = [
 //    ] },
 module.exports.getFeaturedRentals = function(){
     return rental_obj.filter((rental)=>rental.featuredRental);
+};
+module.exports.getRentals = function(){
+    return rental_obj;
 };
 module.exports.getRentalsByCityAndProvince = function(){
     let rentals = [];

@@ -1,0 +1,15 @@
+<div class="deleteRental app__flex">
+<h1>Delete Rental</h1>
+<div class="deleteRental-img">
+    <img src="../../{{data.imageUrl}}" alt="Rental Image">
+</div>
+<div class="deleteRental-data">
+    <p>Deleting Rental with <em>headline</em>: <b class="bold">{{data.headline}}</b> </p>
+    <p>For deleting this rental click on bottom delete button.</p>
+</div>
+<div class="deleteRental-btn">
+    <form action="/rentals/remove/{{data._id}}" method="post">
+    <button type="submit" class="btn btn-outline-danger">Delete</button>
+    </form>
+</div>
+</div>

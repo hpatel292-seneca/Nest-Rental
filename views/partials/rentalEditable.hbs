@@ -1,0 +1,13 @@
+<div class="rental_item">
+    <div class="rental_item_div">
+        <img src="../../{{imageUrl}}" alt="Property Image">
+    </div>
+    <h4>{{headline}}</h4>
+    <p>Sleeps {{numBedrooms}} · {{this.numBathrooms}} BR · {{numBathrooms}} BA</p>
+    <p><span class="bold-text">C${{pricePerNight}}</span> avg/night</p>
+    <div class="clerkBtn">
+        <button type="button" class="btn btn-danger"><a href="/rentals/edit/{{_id}}" class="white_text normal_text">Edit</a></button>
+        <button type="button" class="btn btn-danger"><a href="/rentals/remove/{{_id}}" class="white_text normal_text">Delete</a></button>
+    </div>
+    
+</div>

@@ -1,0 +1,31 @@
+<div class="rentals_hbs app__flex">
+    {{#if this.isCustomer}}
+        {{#each data}}
+
+        <h1>{{cityProvince}}</h1>
+        <div class="rentals app__flex">
+
+            {{#each rentals}}
+            {{> rental this customer="Customer"}}
+            {{/each}}
+        </div>
+        {{else}}
+        <h1>No Data Inserted!!</h1>
+        {{/each}}
+    {{else}}
+        {{#each data}}
+
+        <h1>{{cityProvince}}</h1>
+        <div class="rentals app__flex">
+
+            {{#each rentals}}
+            {{> rental this}}
+            {{/each}}
+        </div>
+        {{else}}
+        <h1>No Data Inserted!!</h1>
+        {{/each}}
+    {{/if}}    
+    
+
+</div>

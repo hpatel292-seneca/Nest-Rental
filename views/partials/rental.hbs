@@ -3,6 +3,9 @@
         <img src="{{imageUrl}}" alt="Property Image">
     </div>
     <h4>{{headline}}</h4>
-    <p>Sleeps {{numBedrooms}} · {{numBathrooms}} BR · {{numBathrooms}} BA</p>
+    <p>Sleeps {{numBedrooms}} · {{this.numBathrooms}} BR · {{numBathrooms}} BA</p>
     <p><span class="bold-text">C${{pricePerNight}}</span> avg/night</p>
+    {{#if customer}}
+    <a href="cart/add-rental/{{this._id}}" class="rental_item-btn"><button type="button" class="btn btn-outline-secondary">Rent</button></a>
+    {{/if}}
 </div>

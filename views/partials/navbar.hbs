@@ -1,7 +1,7 @@
 <div class="close_bg" onclick="toggleMenu(true)"></div>
 <nav class="app__nav">
     <div class="nav-icon app__flex">
-        <a href="/" class="app__flex"><img src="../logo.png" alt="Site Logo" id="app__logo"></a>
+        <a href="/" class="app__flex"><img src="/../logo.png" alt="Site Logo" id="app__logo"></a>
     </div>
     <div class="toggle-icon-div app__flex icon-div">
     <i class="fas fa-bars" onclick="toggleMenu(false)" id="hamMenu1"></i>
@@ -14,9 +14,17 @@
 
             <li class="nav_link"><a href="/">Home</a></li>
             <li class="nav_link"><a href="/rentals">Rentals</a></li>
+            {{#if user}}
+            {{#if isClerk}}
+            <li class="nav_link"><a href="/rentals/list">{{user.Name}}</a></li>
+            {{else}}
+            <li class="nav_link"><a href="/cart">{{user.Name}}</a></li>
+            {{/if}}
+            <li class="nav_link"><a href="/log-out">Log-out</a></li>
+            {{else}}
             <li class="nav_link"><a href="/sign-up">Sign-up</a></li>
             <li class="nav_link"><a href="/log-in">Log-in</a></li>
-
+            {{/if}}
         </ul>
         
         

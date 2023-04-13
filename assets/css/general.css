@@ -233,9 +233,14 @@ nav{
     width: 400px;
     height: 400px;
 }
+.deleteRental-data{
+    width: 80%;
+}
 .deleteRental-data p{
     font-family: 'Oxygen', sans-serif;
     font-size: 1.2rem;
+    /* width: 80%; */
+    text-align: center;
 }
 .deleteRental-data .bold{
     font-size: 1.4rem;
@@ -262,6 +267,7 @@ nav{
     display: flex;
     flex-direction: column;
     margin: 25px 0px;
+    text-align: center;
 }
 .rentals_hbs .rentals{
     /* padding-top: 50px; */
@@ -581,6 +587,9 @@ footer li a:hover{
 }
 /* ------------------ media queries ---------------- */
 @media(max-width: 1200px){
+    .deleteRental h1{
+        font-size: 3rem;
+    }
     .app__hero-div h1{
         font-size: 3rem;
     }
@@ -606,6 +615,12 @@ footer li a:hover{
     }
 }
 @media(max-width: 992px){
+    .rentals_hbs h1{
+        font-size: 4rem;
+    }
+    .overlay h1{
+        font-size: 4rem;
+    }
     footer ul,
     footer .copywrite
     {
@@ -630,6 +645,12 @@ footer li a:hover{
 }
 @media(max-width: 768px)
 {
+    .rentals_hbs h1{
+        font-size: 3.5rem;
+    }
+    .overlay h1{
+        font-size: 3.5rem;
+    }
     .app__contact_us{
         width: 85%;
     }
@@ -642,6 +663,9 @@ footer li a:hover{
         width: 90%;
     }
     .app__hero-div h1{
+        font-size: 2.5rem;
+    }
+    .deleteRental h1{
         font-size: 2.5rem;
     }
     .app__hero-div p{
@@ -715,6 +739,21 @@ footer li a:hover{
     
     
 }
+@media(max-width: 668px){
+    .rentals_hbs h1{
+        font-size: 3rem;
+    }
+    .overlay h1{
+        font-size: 3rem;
+    }
+    .rentalsList-div{
+        grid-template-columns: 1fr;
+    }
+    .deleteRental-img img {
+        width: 300px;
+        height: 300px;
+    }
+}
 @media(max-width: 500px){
     .welcome_content{
         font-size: 1.5rem;
@@ -736,6 +775,9 @@ footer li a:hover{
         width: 315px;
     }
     .app__hero-div h1{
+        font-size: 2rem;
+    }
+    .deleteRental h1{
         font-size: 2rem;
     }
     .app__hero-div p{
@@ -761,7 +803,12 @@ footer li a:hover{
     }
 }
 @media(max-width: 480px){
-    
+    .rentals_hbs h1{
+        font-size: 2.5rem;
+    }
+    .overlay h1{
+        font-size: 2.5rem;
+    }
     footer ul,
     footer .copywrite
     {
@@ -778,6 +825,10 @@ footer li a:hover{
     }
     .app__contact_us{
         margin: 50px auto;
+    }
+    .deleteRental-img img {
+        width: 200px;
+        height: 200px;
     }
 }
 @media(max-width: 360px){
@@ -801,6 +852,9 @@ footer li a:hover{
         text-align: center;
     }
     .app__hero-div h1{
+        font-size: 1.75rem;
+    }
+    .deleteRental h1{
         font-size: 1.75rem;
     }
     .app__hero-div p{

@@ -4,6 +4,7 @@ const rentals = require('../models/rentals-db');
 let userModel = require('../models/userModel.js');
 const rentalModel = require("../models/rentalModel");
 const bcryptjs = require('bcryptjs');
+const MongoStore = require('connect-mongo');
 router.get("/", (req, res) => {
     // res.sendFile(path.join(__dirname, "/views/home.html"));
     rentalModel.find({ featuredRental: true}).lean()
@@ -269,7 +270,7 @@ router.post('/log-in', (req, res) => {
 
 router.get("/log-out", (req, res)=>{
     req.session.destroy();
-
+    // MongoStore.destroy(),
     res.redirect("log-in");
 })
 module.exports = router;

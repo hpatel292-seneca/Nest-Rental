@@ -17,6 +17,8 @@ const rentals = require('./models/rentals-db');
 const exphbs = require('express-handlebars');
 const mongoose = require('mongoose');
 const fileUpload = require("express-fileupload");
+// mongo session
+const MongoStore = require('connect-mongo');
 // set up session
 const session = require("express-session");
 // Set up dotenv
@@ -39,6 +41,7 @@ app.use(fileUpload());
 // Set up express-session
 app.use(session({
     secret: process.env.SESSION_SECRET,
+    store: MongoStore.create({ mongoUrl: process.env.MONGODB_CONNECTION_URL,  }),
     resave: false,
     saveUninitialized: true
 }));

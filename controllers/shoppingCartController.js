@@ -2,8 +2,12 @@ const express = require("express");
 const router = express.Router();
 const rentalModel = require("../models/rentalModel");
 router.get('/', (req, res) => {
-    console.log(getCart(req));
+    console.log(req.session.isCustomer);
+    if (req.session.user && req.session.isCustomer) {
     res.render('shopping-cart/cart', getCart(req));
+    }else{
+        res.status(401).render("general/unauthorized", { layout: "main" })
+    }
 })
 const getCart = function (req, message) {
 

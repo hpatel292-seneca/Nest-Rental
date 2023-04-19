@@ -165,7 +165,7 @@ router.get("/remove-night/:id", (req, res) => {
         res.status(401).render("general/unauthorized", { layout: "main" })
     }
 
-    res.render('shopping-cart/cart', getCart(req));
+    //res.render('shopping-cart/cart', getCart(req));
 });
 
 

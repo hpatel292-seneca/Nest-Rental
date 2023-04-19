@@ -135,7 +135,7 @@ router.get("/remove-rental/:id", (req, res) => {
 
 router.get("/remove-night/:id", (req, res) => {
     const rentalId = req.params.id;
-
+    console.log("removing night");
     // Check if the user is signed in.
     if (req.session.user && req.session.isCustomer) {
         // The user is signed in as Customer
@@ -147,6 +147,7 @@ router.get("/remove-night/:id", (req, res) => {
 
         if (index >= 0) {
             // cart.splice(index, 1);
+            console.log("removing night from rental with card index " + index);
             if (cart[index].numOfNights <= 1) {
                 res.redirect(`/cart/remove-rental/${rentalId}`);
             }

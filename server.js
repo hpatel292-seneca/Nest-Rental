@@ -117,4 +117,3 @@ mongoose.connect(process.env.MONGODB_CONNECTION_URL, {
 .catch(()=>{
     console.log("Error while connection to mongoDB");
 })
-

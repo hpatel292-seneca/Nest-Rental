@@ -13,7 +13,7 @@
 const path = require("path");
 const express = require("express");
 const app = express();
-const rentals = require('./models/rentals-db');
+const rentals = require('./models/rentals-db.js');
 const exphbs = require('express-handlebars');
 const mongoose = require('mongoose');
 const fileUpload = require("express-fileupload");
@@ -26,6 +26,7 @@ const dotenv = require("dotenv");
 dotenv.config({ path: "./config/keys.env" });
 
 // Set up HandleBars
+app.set('views', path.join(__dirname, 'views'));
 app.engine(".hbs", exphbs.engine({
     extname: ".hbs",
     defaultLayout: "main"

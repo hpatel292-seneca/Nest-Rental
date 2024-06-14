@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "This is a full-stack rental site, where user can see avalible rental property and list their property",
   "main": "server.js",
+  "engines": {
+    "node": "14.x"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"

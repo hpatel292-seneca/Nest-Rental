@@ -9,7 +9,7 @@ router.get("/", (req, res) => {
     // res.sendFile(path.join(__dirname, "/views/home.html"));
     rentalModel.find({ featuredRental: true}).lean()
     .then(data=>{
-        res.render('general/home', {
+        res.render('general/home.hbs', {
             data,
             id: "front_page",
             isHome: true,

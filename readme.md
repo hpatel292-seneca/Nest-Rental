@@ -1,6 +1,17 @@
 # Nest-Rental Repository Documentation
 
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+
 The **[Nest-Rental](https://github.com/hpatel292-seneca/Nest-Rental)** repository by hpatel292-seneca is a web application designed for managing rental properties. Here's a detailed documentation to help understand the structure and components of this project:
+
+## UI
+![image](https://github.com/hpatel292-seneca/Nest-Rental/assets/100322816/ec4ed8c2-a448-4111-a777-26a21450b390)
+- Home page of Nest Rental
+
+## Database Diagram
+![Database ER diagram (crow's foot)](https://github.com/hpatel292-seneca/Nest-Rental/assets/100322816/6a95ea23-0ecd-4431-97f5-5346ba30dd8e)
+- MongoDB has been used for storing data
+
 
 ## Project Structure
 
